@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import PortfolioHeader from "@/components/PortfolioHeader";
+import AboutSection from "@/components/AboutSection";
+import ProjectSection from "@/components/ProjectSection";
+import GitHubSection from "@/components/GitHubSection";
+import CertificatesSection from "@/components/CertificatesSection";
+import ECurriculaSection from "@/components/ECurriculaSection";
+import HackerRankSection from "@/components/HackerRankSection";
+import PortfolioFooter from "@/components/PortfolioFooter";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <PortfolioHeader />
+      
+      <main className="container mx-auto px-6 pb-12">
+        <AboutSection />
+        <ProjectSection />
+        <GitHubSection />
+        <CertificatesSection />
+        <ECurriculaSection />
+        <HackerRankSection />
+      </main>
+
+      <PortfolioFooter />
     </div>
   );
 };
