@@ -1,4 +1,5 @@
 import { User } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const PortfolioHeader = () => {
   return (
@@ -19,21 +20,12 @@ const PortfolioHeader = () => {
           </div>
           
           <div className="ml-8">
-            <div className="w-40 h-40 rounded-lg bg-white/10 backdrop-blur border-2 border-primary-foreground/30 flex items-center justify-center overflow-hidden shadow-xl">
-              <div className="relative w-full h-full group">
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                  id="profile-photo"
-                />
-                <label htmlFor="profile-photo" className="absolute inset-0 flex items-center justify-center cursor-pointer">
-                  <div className="text-center">
-                    <User className="w-16 h-16 mx-auto mb-2 opacity-70" />
-                    <p className="text-xs opacity-70">Upload Photo</p>
-                  </div>
-                </label>
-              </div>
+            <div className="w-40 h-40 rounded-lg bg-white/10 backdrop-blur border-2 border-primary-foreground/30 overflow-hidden shadow-xl">
+              <img 
+                src={profilePhoto} 
+                alt="Ulaganathan P Profile" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

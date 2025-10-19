@@ -27,22 +27,18 @@ const ECurriculaSection = () => {
                 </p>
               </div>
               
-              <div className="border-2 border-dashed border-accent/30 rounded-lg p-6 hover:border-accent transition-colors text-center">
-                <input 
-                  type="file" 
-                  accept=".pdf,image/*"
-                  className="hidden"
-                  id="ecurricula-upload"
-                />
-                <label 
-                  htmlFor="ecurricula-upload" 
-                  className="cursor-pointer flex flex-col items-center"
-                >
-                  <FileText className="w-10 h-10 text-accent mb-3" />
-                  <span className="text-sm font-semibold text-primary">Click to Upload Document</span>
-                  <span className="text-xs text-muted-foreground mt-1">PDF or Image Format</span>
-                </label>
-              </div>
+              <a 
+                href="/ktretecurricula2024.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="border-2 border-accent/30 rounded-lg p-6 hover:border-accent transition-colors block"
+              >
+                <div className="flex flex-col items-center">
+                  <CheckCircle className="w-10 h-10 text-accent mb-3" />
+                  <span className="text-sm font-semibold text-primary">E-Curricula Wheel Proof</span>
+                  <span className="text-xs text-muted-foreground mt-1">Click to view document</span>
+                </div>
+              </a>
               
               <div className="mt-4 text-center">
                 <p className="text-xs text-muted-foreground italic">

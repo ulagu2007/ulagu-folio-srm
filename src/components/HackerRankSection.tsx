@@ -1,4 +1,10 @@
-import { Code2, Upload, Link as LinkIcon } from "lucide-react";
+import { Code2 } from "lucide-react";
+import easyJava1 from "@/assets/hackerrank-easy1.jpg";
+import easyJava2 from "@/assets/hackerrank-easy2.jpg";
+import mediumJava1 from "@/assets/hackerrank-medium1.jpg";
+import mediumJava2 from "@/assets/hackerrank-medium2.jpg";
+import hardPython1 from "@/assets/hackerrank-hard1.jpg";
+import hardPython2 from "@/assets/hackerrank-hard2.jpg";
 
 const HackerRankSection = () => {
   const problemCategories = [
@@ -7,21 +13,21 @@ const HackerRankSection = () => {
       language: "Java", 
       color: "bg-green-50 border-green-300", 
       iconColor: "text-green-600",
-      count: 3 
+      problems: [easyJava1, easyJava2]
     },
     { 
       level: "Medium", 
       language: "Java", 
       color: "bg-yellow-50 border-yellow-300", 
       iconColor: "text-yellow-600",
-      count: 3 
+      problems: [mediumJava1, mediumJava2]
     },
     { 
       level: "Hard", 
       language: "Python", 
       color: "bg-red-50 border-red-300", 
       iconColor: "text-red-600",
-      count: 3 
+      problems: [hardPython1, hardPython2]
     }
   ];
 
@@ -40,30 +46,19 @@ const HackerRankSection = () => {
                 </h3>
               </div>
               
-              <div className="grid gap-3">
-                {[...Array(category.count)].map((_, idx) => (
+              <div className="grid gap-4">
+                {category.problems.map((problemImage, idx) => (
                   <div 
                     key={idx}
-                    className={`${category.color} rounded-lg p-4 border-2`}
+                    className={`${category.color} rounded-lg p-4 border-2 overflow-hidden`}
                   >
                     <p className="text-sm font-semibold mb-3">Problem {idx + 1}</p>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      <div className="flex items-center gap-2">
-                        <LinkIcon className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                        <input 
-                          type="text" 
-                          placeholder="HackerRank problem URL"
-                          className="flex-1 text-xs p-2 border border-input rounded bg-white focus:outline-none focus:ring-2 focus:ring-accent"
-                        />
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Upload className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                        <input 
-                          type="file" 
-                          accept="image/*"
-                          className="flex-1 text-xs"
-                        />
-                      </div>
+                    <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                      <img 
+                        src={problemImage} 
+                        alt={`${category.level} ${category.language} Problem ${idx + 1}`}
+                        className="w-full h-auto"
+                      />
                     </div>
                   </div>
                 ))}
