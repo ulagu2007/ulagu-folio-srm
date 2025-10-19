@@ -6,7 +6,7 @@ const AboutSection = () => {
       <Card className="border-2">
         <CardHeader className="bg-academic-light">
           <CardTitle className="text-xl font-bold text-primary">
-            About Me <span className="text-sm font-normal text-muted-foreground">(1 Mark)</span>
+            About Me
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
