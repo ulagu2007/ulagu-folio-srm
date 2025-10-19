@@ -8,39 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 216 28% 15%;
+    --background: 220 20% 97%;
+    --foreground: 220 40% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 216 28% 15%;
+    --card-foreground: 220 40% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 216 28% 15%;
+    --popover-foreground: 220 40% 10%;
 
-    --primary: 216 83% 22%;
+    --primary: 220 70% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 216 28% 15%;
+    --secondary: 220 15% 90%;
+    --secondary-foreground: 220 40% 10%;
 
-    --muted: 210 20% 92%;
-    --muted-foreground: 216 12% 45%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 20% 50%;
 
-    --accent: 210 80% 45%;
+    --accent: 200 85% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 85%;
-    --input: 214 25% 85%;
-    --ring: 216 83% 22%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 70% 35%;
 
-    --radius: 0.375rem;
+    --radius: 0.5rem;
 
-    --academic-navy: 216 83% 22%;
-    --academic-gray: 216 12% 45%;
-    --academic-light: 210 20% 96%;
+    --gradient-primary: linear-gradient(135deg, hsl(220, 70%, 35%), hsl(200, 85%, 45%));
+    --shadow-elegant: 0 4px 20px -2px hsl(220 70% 35% / 0.15);
   }
 }
 
@@ -52,10 +51,20 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 12pt;
+    font-size: 11pt;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+
+  .elegant-card {
+    @apply bg-card rounded-lg border border-border shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold text-primary mb-6 pb-2 border-b-2 border-accent/30;
   }
 }

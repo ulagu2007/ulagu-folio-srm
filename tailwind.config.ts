@@ -53,6 +53,12 @@ export default {
           light: "hsl(var(--academic-light))",
         },
       },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+      },
+      boxShadow: {
+        'elegant': 'var(--shadow-elegant)',
+      },
       fontFamily: {
         serif: ['Georgia', 'Times New Roman', 'Times', 'serif'],
       },
