@@ -1,5 +1,6 @@
 import { FileText, CheckCircle, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import ecurriculaWheel from "@/assets/ecurricula-wheel.png";
 
 const ECurriculaSection = () => {
   return (
@@ -30,26 +31,19 @@ const ECurriculaSection = () => {
               E-Curricula Wheel Proof
             </h3>
             
-            <a 
-              href="/ktretecurricula2024.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block glassmorphism p-6 hover:scale-105 transition-all duration-300 group"
-            >
-              <div className="flex flex-col items-center gap-4">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-                  <CheckCircle className="relative w-16 h-16 text-primary" />
-                </div>
-                <div className="text-center">
-                  <p className="text-lg font-semibold text-primary mb-2">View Completion Certificate</p>
-                  <p className="text-sm text-muted-foreground flex items-center gap-2 justify-center">
-                    All 5 Units (20 Sessions) Completed
-                    <ExternalLink className="w-4 h-4" />
-                  </p>
-                </div>
+            <div className="glassmorphism p-6">
+              <img 
+                src={ecurriculaWheel} 
+                alt="E-Curricula Completion Wheel - ADVANCED PROGRAMMING PRACTICE (21CSC203P)"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+              <div className="mt-4 text-center">
+                <p className="text-sm text-muted-foreground flex items-center gap-2 justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  All 5 Units (20 Sessions) Completed
+                </p>
               </div>
-            </a>
+            </div>
           </div>
         </motion.div>
       </div>

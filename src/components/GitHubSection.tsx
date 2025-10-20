@@ -59,11 +59,15 @@ const GitHubSection = () => {
               transition={{ delay: 0.4 }}
             >
               <p className="font-semibold text-sm text-muted-foreground mb-3">Project Repository 2</p>
-            <input 
-              type="text" 
-              placeholder="Enter GitHub project link" 
-              className="w-full p-3 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent"
-              />
+              <a 
+                href="https://github.com/ulagu2007/website-whisperer-46" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-accent hover:underline font-semibold text-base flex items-center gap-2 transition-colors"
+              >
+                github.com/ulagu2007/website-whisperer-46
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </motion.div>
           </div>
         </div>
