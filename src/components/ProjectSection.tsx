@@ -1,9 +1,24 @@
+import { motion } from "framer-motion";
+
 const ProjectSection = () => {
   return (
-    <section className="mb-10">
-      <div className="elegant-card p-8">
-        <h2 className="section-title">Projects</h2>
-        <div className="bg-gradient-to-r from-accent/5 to-primary/5 rounded-lg p-6 border-l-4 border-accent">
+    <motion.section 
+      className="py-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="container mx-auto px-6">
+        <h2 className="section-title text-center">Projects</h2>
+        <motion.div 
+          className="glassmorphism p-8 max-w-4xl mx-auto mt-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg p-6 border-l-4 border-accent">
           <h3 className="text-xl font-bold text-primary mb-4">
             MediLife – Smart Health Companion
           </h3>
@@ -32,8 +47,9 @@ const ProjectSection = () => {
             </li>
           </ul>
         </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,10 +1,22 @@
+import { motion } from "framer-motion";
+
 const PortfolioFooter = () => {
   return (
-    <footer className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-6 mt-12">
-      <div className="container mx-auto px-6">
-        <div className="text-center space-y-2">
-          <p className="text-sm font-semibold">
-            Ulaganathan P | RA2411003010265
+    <footer className="relative mt-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary animate-gradient" />
+      <div className="relative container mx-auto px-6 py-12">
+        <motion.div 
+          className="text-center space-y-3 text-white"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-lg font-bold">
+            Ulaganathan P
+          </p>
+          <p className="text-sm opacity-90">
+            Register Number: RA2411003010265
           </p>
           <p className="text-sm opacity-90">
             Department of Computing Technologies
@@ -12,10 +24,10 @@ const PortfolioFooter = () => {
           <p className="text-sm opacity-90">
             SRM Institute of Science and Technology, Kattankulathur
           </p>
-          <p className="text-xs opacity-75 mt-3 pt-3 border-t border-primary-foreground/20">
-            Advanced Programming Practice Portfolio – October 2025
+          <p className="text-xs opacity-75 mt-4 pt-4 border-t border-white/20">
+            Portfolio © {new Date().getFullYear()}
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

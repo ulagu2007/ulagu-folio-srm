@@ -1,4 +1,5 @@
 import { Code2 } from "lucide-react";
+import { motion } from "framer-motion";
 import easyJava1 from "@/assets/hackerrank-easy1.jpg";
 import easyJava2 from "@/assets/hackerrank-easy2.jpg";
 import mediumJava1 from "@/assets/hackerrank-medium1.jpg";
@@ -11,63 +12,79 @@ const HackerRankSection = () => {
     { 
       level: "Easy", 
       language: "Java", 
-      color: "bg-green-50 border-green-300", 
-      iconColor: "text-green-600",
+      gradient: "from-green-500 to-emerald-500",
       problems: [easyJava1, easyJava2]
     },
     { 
       level: "Medium", 
       language: "Java", 
-      color: "bg-yellow-50 border-yellow-300", 
-      iconColor: "text-yellow-600",
+      gradient: "from-yellow-500 to-orange-500",
       problems: [mediumJava1, mediumJava2]
     },
     { 
       level: "Hard", 
       language: "Python", 
-      color: "bg-red-50 border-red-300", 
-      iconColor: "text-red-600",
+      gradient: "from-red-500 to-pink-500",
       problems: [hardPython1, hardPython2]
     }
   ];
 
   return (
-    <section className="mb-10">
-      <div className="elegant-card p-8">
-        <h2 className="section-title">HackerRank Problem Solving</h2>
+    <motion.section 
+      className="py-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="container mx-auto px-6">
+        <h2 className="section-title text-center">HackerRank Problem Solving</h2>
         
-        <div className="space-y-6">
-          {problemCategories.map((category) => (
-            <div key={`${category.level}-${category.language}`} className="border-l-4 border-primary/30 pl-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Code2 className={`w-6 h-6 ${category.iconColor}`} />
-                <h3 className="text-lg font-bold text-foreground">
+        <div className="space-y-8 mt-12 max-w-5xl mx-auto">
+          {problemCategories.map((category, catIndex) => (
+            <motion.div 
+              key={`${category.level}-${category.language}`} 
+              className="glassmorphism p-6"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: catIndex * 0.1, duration: 0.5 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient}`}>
+                  <Code2 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">
                   {category.level} Level - {category.language}
                 </h3>
               </div>
               
-              <div className="grid gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 {category.problems.map((problemImage, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx}
-                    className={`${category.color} rounded-lg p-4 border-2 overflow-hidden`}
+                    className="glassmorphism p-4 hover:scale-105 transition-transform duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: catIndex * 0.1 + idx * 0.1, duration: 0.5 }}
                   >
-                    <p className="text-sm font-semibold mb-3">Problem {idx + 1}</p>
-                    <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                    <p className="text-sm font-semibold mb-3 text-muted-foreground">Problem {idx + 1}</p>
+                    <div className="bg-background/50 rounded-lg overflow-hidden border border-border">
                       <img 
                         src={problemImage} 
                         alt={`${category.level} ${category.language} Problem ${idx + 1}`}
                         className="w-full h-auto"
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
