@@ -9,11 +9,16 @@ import HackerRankSection from "@/components/HackerRankSection";
 import ContactSection from "@/components/ContactSection";
 import PortfolioFooter from "@/components/PortfolioFooter";
 import ScrollProgress from "@/components/ScrollProgress";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import MouseFollower from "@/components/MouseFollower";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
+      <AnimatedBackground />
+      <MouseFollower />
       <ScrollProgress />
+      
       <HeroSection />
       
       <main>
