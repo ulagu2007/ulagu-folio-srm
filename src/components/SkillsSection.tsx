@@ -36,7 +36,7 @@ const SkillsSection = () => {
               <div className="p-4 rounded-xl bg-gradient-to-br from-primary to-accent">
                 <skill.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-sm font-semibold text-foreground text-center">{skill.name}</h3>
+              <h3 className="text-base font-semibold text-foreground text-center">{skill.name}</h3>
             </motion.div>
           ))}
         </div>

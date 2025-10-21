@@ -12,7 +12,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         <h2 className="section-title text-center">About Me</h2>
         <div className="glassmorphism p-8 max-w-4xl mx-auto mt-8">
-          <div className="space-y-4 text-base leading-relaxed">
+          <div className="space-y-4 text-lg leading-relaxed">
           <p className="text-justify">
             I'm Ulaganathan P, a B.Tech Computer Science and Engineering student at SRM University, Kattankulathur, 
             with a strong interest in backend development, artificial intelligence, and innovative technology solutions.

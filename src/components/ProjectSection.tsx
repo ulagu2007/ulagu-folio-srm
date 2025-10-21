@@ -19,10 +19,10 @@ const ProjectSection = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
         >
           <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg p-6 border-l-4 border-accent">
-          <h3 className="text-xl font-bold text-primary mb-4">
+          <h3 className="text-2xl font-bold text-primary mb-4">
             MediLife – Smart Health Companion
           </h3>
-          <ul className="space-y-3 text-base">
+          <ul className="space-y-3 text-lg">
             <li className="flex items-start">
               <span className="text-accent mr-3 mt-1">•</span>
               <span>Developed a Java Swing-based application with a user-friendly GUI to provide daily wellness tips, 

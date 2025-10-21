@@ -55,41 +55,36 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-5xl lg:text-7xl font-bold mb-6 glow-text"
+              className="text-6xl lg:text-8xl font-bold mb-4 glow-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
               {text}
               <motion.span
-                className="inline-block w-1 h-12 lg:h-16 bg-primary ml-2"
+                className="inline-block w-1 h-16 lg:h-20 bg-primary ml-2"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
               />
             </motion.h1>
             
             <motion.p 
-              className="text-xl lg:text-2xl text-muted-foreground mb-8"
+              className="text-2xl lg:text-3xl text-accent mb-6 font-medium"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
-              Backend Developer | AI Enthusiast | Innovator
+              Turning code into smart, scalable, and meaningful technology solutions.
             </motion.p>
 
-            <motion.div
-              className="flex gap-4 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
+            <motion.p 
+              className="text-lg lg:text-xl text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.0 }}
             >
-              <button className="px-8 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full font-semibold btn-glow hover:scale-105 transition-transform">
-                View Projects
-              </button>
-              <button className="px-8 py-3 glassmorphism text-primary font-semibold hover:scale-105 transition-transform">
-                Contact Me
-              </button>
-            </motion.div>
+              B.Tech Computer Science & Engineering Student
+            </motion.p>
           </motion.div>
 
           <motion.div

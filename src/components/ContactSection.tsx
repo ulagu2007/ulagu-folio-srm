@@ -48,7 +48,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground font-medium">ulaganathan@example.com</p>
+                    <p className="text-foreground font-medium text-base">up0601@srmist.edu.in</p>
                   </div>
                 </div>
 
@@ -58,7 +58,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="text-foreground font-medium">+91 XXXXX XXXXX</p>
+                    <p className="text-foreground font-medium text-base">+91 6382929030</p>
                   </div>
                 </div>
 
@@ -68,7 +68,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground font-medium">SRM University, Kattankulathur</p>
+                    <p className="text-foreground font-medium text-base">SRM University, Kattankulathur</p>
                   </div>
                 </div>
               </div>
@@ -83,39 +83,39 @@ const ContactSection = () => {
           >
             <form onSubmit={handleSubmit} className="glassmorphism p-8 space-y-6">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Name</label>
+                <label className="block text-base font-medium text-foreground mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                  className="w-full px-4 py-4 text-base bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                   placeholder="Your name"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                <label className="block text-base font-medium text-foreground mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                  className="w-full px-4 py-4 text-base bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                   placeholder="your.email@example.com"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Message</label>
+                <label className="block text-base font-medium text-foreground mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)] resize-none"
+                  className="w-full px-4 py-4 text-base bg-background/50 border border-primary/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] focus:shadow-[0_0_20px_rgba(59,130,246,0.3)] resize-none"
                   placeholder="Your message..."
                   required
                 />
@@ -123,7 +123,7 @@ const ContactSection = () => {
 
               <motion.button
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold btn-glow hover:scale-105 transition-transform flex items-center justify-center gap-2"
+                className="w-full px-6 py-4 text-lg bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold btn-glow hover:scale-105 transition-transform flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
