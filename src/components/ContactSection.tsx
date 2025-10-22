@@ -1,239 +1,194 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
-
-  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "up0601@srmist.edu.in",
-      gradient: "from-blue-500 to-cyan-500"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 6382929030",
-      gradient: "from-cyan-500 to-blue-400"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "SRM University, Kattankulathur",
-      gradient: "from-blue-400 to-indigo-500"
-    }
-  ];
-
   return (
-    <section id="contact" className="py-32 relative">
+    <section id="contact" className="py-24 bg-white" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto"
         >
-          <h2 className="section-title">Let's Connect</h2>
-          <p className="text-xl text-blue-300 mt-4">Ready to create something amazing together?</p>
-        </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
+            Get In Touch
+          </h2>
+          <p className="text-xl text-gray-600 mb-16 text-center">
+            Let's discuss your next project or just say hello
+          </p>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
               className="space-y-8"
             >
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  className="glass-strong rounded-2xl p-6 flex items-center gap-6 group cursor-pointer neon-box-glow"
-                >
-                  <motion.div
-                    className={`p-4 rounded-xl bg-gradient-to-br ${info.gradient} relative`}
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <info.icon className="w-6 h-6 text-white" />
-                    
-                    <motion.div
-                      className="absolute inset-0 rounded-xl border-2 border-white/30"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [1, 0, 1],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                      }}
-                    />
-                  </motion.div>
-                  
-                  <div>
-                    <p className="text-sm text-blue-400 mb-1">{info.label}</p>
-                    <p className="text-lg font-semibold text-white">{info.value}</p>
-                  </div>
-                </motion.div>
-              ))}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Contact Information
+                </h3>
+                
+                <div className="space-y-4">
+                  <a href="mailto:up0601@srmist.edu.in" className="flex items-center gap-4 text-gray-600 hover:text-primary transition-colors group">
+                    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Email</p>
+                      <p className="font-medium">up0601@srmist.edu.in</p>
+                    </div>
+                  </a>
 
-              {/* Decorative Element */}
-              <motion.div
-                className="relative h-64 glass rounded-2xl overflow-hidden"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20" />
-                <motion.div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                >
-                  <Sparkles className="w-24 h-24 text-cyan-400/30" />
-                </motion.div>
-              </motion.div>
+                  <a href="tel:+916382929030" className="flex items-center gap-4 text-gray-600 hover:text-primary transition-colors group">
+                    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Phone</p>
+                      <p className="font-medium">+91 6382929030</p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4 text-gray-600">
+                    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Location</p>
+                      <p className="font-medium">SRM University, Kattankulathur</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Connect With Me
+                </h3>
+                <div className="flex gap-4">
+                  <a
+                    href="https://github.com/ulagu2007"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all"
+                  >
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:up0601@srmist.edu.in"
+                    className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
             </motion.div>
 
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit} className="glass-strong rounded-3xl p-8 space-y-6 neon-box-glow">
-                {/* Name Field */}
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-base font-medium text-blue-300 mb-2">Name</label>
-                  <motion.div
-                    animate={{
-                      boxShadow: focusedField === 'name'
-                        ? '0 0 20px rgba(59, 130, 246, 0.5)'
-                        : '0 0 0px rgba(59, 130, 246, 0)',
-                    }}
-                    className="relative"
-                  >
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField('name')}
-                      onBlur={() => setFocusedField(null)}
-                      className="w-full px-4 py-4 text-base glass border border-blue-500/30 rounded-xl text-white placeholder-blue-400/50 focus:outline-none focus:border-cyan-400 transition-all"
-                      placeholder="Your name"
-                      required
-                    />
-                  </motion.div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="Your name"
+                  />
                 </div>
 
-                {/* Email Field */}
                 <div>
-                  <label className="block text-base font-medium text-blue-300 mb-2">Email</label>
-                  <motion.div
-                    animate={{
-                      boxShadow: focusedField === 'email'
-                        ? '0 0 20px rgba(6, 182, 212, 0.5)'
-                        : '0 0 0px rgba(6, 182, 212, 0)',
-                    }}
-                    className="relative"
-                  >
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField('email')}
-                      onBlur={() => setFocusedField(null)}
-                      className="w-full px-4 py-4 text-base glass border border-blue-500/30 rounded-xl text-white placeholder-blue-400/50 focus:outline-none focus:border-cyan-400 transition-all"
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </motion.div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="your.email@example.com"
+                  />
                 </div>
 
-                {/* Message Field */}
                 <div>
-                  <label className="block text-base font-medium text-blue-300 mb-2">Message</label>
-                  <motion.div
-                    animate={{
-                      boxShadow: focusedField === 'message'
-                        ? '0 0 20px rgba(59, 130, 246, 0.5)'
-                        : '0 0 0px rgba(59, 130, 246, 0)',
-                    }}
-                    className="relative"
-                  >
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={() => setFocusedField(null)}
-                      rows={5}
-                      className="w-full px-4 py-4 text-base glass border border-blue-500/30 rounded-xl text-white placeholder-blue-400/50 focus:outline-none focus:border-cyan-400 transition-all resize-none"
-                      placeholder="Your message..."
-                      required
-                    />
-                  </motion.div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                    placeholder="Your message..."
+                  />
                 </div>
 
-                {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  className="w-full px-6 py-4 text-lg btn-neon rounded-xl font-semibold text-white flex items-center justify-center gap-3 group"
+                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>Send Message</span>
-                  <motion.div
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                    }}
-                  >
-                    <Send className="w-5 h-5" />
-                  </motion.div>
+                  Send Message
+                  <Send className="w-5 h-5" />
                 </motion.button>
               </form>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
