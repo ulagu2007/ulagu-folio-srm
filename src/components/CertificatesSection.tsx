@@ -19,7 +19,7 @@ const CertificatesSection = () => {
 
   return (
     <>
-      <section className="py-24 bg-white" ref={ref}>
+      <section className="py-24 bg-gradient-to-b from-blue-50/30 to-white" ref={ref}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -29,6 +29,7 @@ const CertificatesSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
               Certificates & Achievements
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4 rounded-full" />
             <p className="text-xl text-gray-600 mb-16 text-center max-w-2xl mx-auto">
               Recognition of skills and accomplishments
             </p>
@@ -40,7 +41,7 @@ const CertificatesSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="card-light p-6 cursor-pointer"
+                  className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-primary p-6 cursor-pointer transition-all duration-300"
                   onClick={() => setSelectedCert(index)}
                 >
                   <div className="relative mb-4">

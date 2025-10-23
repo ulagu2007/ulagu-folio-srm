@@ -37,7 +37,7 @@ const HackerRankSection = () => {
 
   return (
     <>
-      <section className="py-24 bg-gray-50" ref={ref}>
+      <section className="py-24 bg-white" ref={ref}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -47,6 +47,7 @@ const HackerRankSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
               HackerRank Achievements
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4 rounded-full" />
             <p className="text-xl text-gray-600 mb-16 text-center max-w-2xl mx-auto">
               Problem-solving excellence across various difficulty levels
             </p>
@@ -58,7 +59,7 @@ const HackerRankSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="card-light p-6"
+                  className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-primary p-6 transition-all duration-300"
                 >
                   <div className="flex items-center gap-4 mb-6">
                     <div className="p-3 bg-blue-50 rounded-xl">

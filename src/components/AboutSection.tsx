@@ -7,7 +7,7 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-white" ref={ref}>
+    <section id="about" className="py-24 bg-gradient-to-b from-white to-blue-50/30" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -15,9 +15,10 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
             About Me
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-12 rounded-full" />
 
           <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
             <motion.p

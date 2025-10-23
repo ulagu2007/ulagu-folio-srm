@@ -32,7 +32,7 @@ const ProjectSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-24 bg-gray-50" ref={ref}>
+    <section id="projects" className="py-24 bg-white" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,6 +42,7 @@ const ProjectSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
             Featured Projects
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4 rounded-full" />
           <p className="text-xl text-gray-600 mb-16 text-center max-w-2xl mx-auto">
             A showcase of my recent work in backend development and AI
           </p>
@@ -53,7 +54,7 @@ const ProjectSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="card-light p-6 group"
+                className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-primary p-6 group transition-all duration-300"
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                   {project.title}
@@ -67,7 +68,7 @@ const ProjectSection = () => {
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-blue-50 text-primary text-sm rounded-full font-medium"
+                      className="px-3 py-1 bg-blue-50 text-primary text-sm rounded-full font-medium border border-primary/20"
                     >
                       {tech}
                     </span>
